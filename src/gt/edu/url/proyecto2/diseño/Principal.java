@@ -40,3 +40,4 @@ public class Principal extends JFrame {
 	}
 
 }
+//no se que esta pasando :'v
