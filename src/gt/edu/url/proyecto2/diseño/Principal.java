@@ -100,6 +100,14 @@ public class Principal extends JFrame {
 		btnSelectFile.setBounds(32, 38, 89, 23);
 		contentPane.add(btnSelectFile);
 		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.setBounds(32, 87, 89, 23);
+		contentPane.add(btnNewButton);
+		
 		
 	}
 }
