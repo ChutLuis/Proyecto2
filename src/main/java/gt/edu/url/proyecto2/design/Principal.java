@@ -4,8 +4,13 @@ import javax.swing.*;
 import gt.edu.url.proyecto2.btree.*;
 import gt.edu.url.proyecto2.dataStructures.*;
 import gt.edu.url.proyecto2.graphviz.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.FilenameFilter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.apache.commons.io.filefilter.FileFileFilter;
 
@@ -24,9 +29,9 @@ public class Principal extends javax.swing.JFrame {
     }
     Graphviz dg = new Graphviz();
     FileLoader Fl = new FileLoader();
-    FileNameExtensionFilter filter = new FileNameExtensionFilter("txt", "dot");
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos permitidos", "txt", "dot");
     JFileChooser filechoose = new JFileChooser();
-    String location, storage;
+    String location, storage, type;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,14 +109,50 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_ImportDoc_buttomActionPerformed
 
     private void GeneratGraph_ButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneratGraph_ButtomActionPerformed
-        try {
-            filechoose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+//        try {
+//            filechoose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+//
+//            if (filechoose.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+//                storage = filechoose.getSelectedFile().getAbsolutePath();
+//            }
+//            
+//            dg.createDemoFromDot(location, storage, "stack");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-            if (filechoose.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                storage = filechoose.getSelectedFile().getAbsolutePath();
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(location));
+
+            type = reader.readLine();
+            String[] data = reader.readLine().split(" ");
+            int[] datos = new int[data.length];
+
+            for (int i = 0; i < datos.length; i++) {
+                datos[i] = Integer.parseInt(data[i]);
             }
-            
-            dg.createDemoFromDot(location, storage);
+
+            switch (type) {
+                case "stack":
+                    //llamar un metodo para graficar
+                    break;
+                case "queue":
+                    //llamar un metodo para graficar
+                    break;
+                case "linkedlist":
+                    //llamar un metodo para graficar
+                    break;
+                case "circularlinkedlist":
+                    //llamar un metodo para graficar
+                    break;
+                case "doublelinkedlist":
+                    //llamar un metodo para graficar
+                    break;
+                case "btree":
+                    //llamar un metodo para graficar
+                    break;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
