@@ -38,10 +38,14 @@ public class CreateDot<E> {
             
             outputStream.println("}");
             outputStream.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CreateDot.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
+
+} catch (FileNotFoundException ex) {
+            Logger.getLogger(CreateDot.class  
+
+.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
     public void createStack(DynamicStack<E> n1){
         String fileName= "N2.dot";

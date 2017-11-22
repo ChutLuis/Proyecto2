@@ -14,7 +14,7 @@ import guru.nidi.graphviz.parse.Parser;
 
 public class Graphviz {
 
-    int cont = 0;
+    int cont = 1;
 
     public void createDemoGraph() throws IOException {
         Graph g = graph("example1").directed().with(node("a").link(node("b")));

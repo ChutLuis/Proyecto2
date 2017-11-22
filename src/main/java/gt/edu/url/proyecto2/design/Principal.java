@@ -31,6 +31,7 @@ public class Principal extends javax.swing.JFrame {
     FileLoader Fl = new FileLoader();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos permitidos", "txt", "dot");
     JFileChooser filechoose = new JFileChooser();
+    CreateDot newdot = new CreateDot();
     String location, storage, type;
 
     /**
@@ -87,53 +88,54 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_ImportDoc_buttomActionPerformed
 
     private void GeneratGraph_ButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneratGraph_ButtomActionPerformed
-        try {
-            filechoose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-            if (filechoose.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                storage = filechoose.getSelectedFile().getAbsolutePath();
-            }            
-         
-            dg.createDemoFromDot(location, storage, "stack");
-        }catch (IOException e) {
-            e.printStackTrace();
+        
+        filechoose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (filechoose.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            storage = filechoose.getSelectedFile().getAbsolutePath();
         }
 
-//        BufferedReader reader;
-//        try {
-//            reader = new BufferedReader(new FileReader(location));
-//
-//            type = reader.readLine();
-//            String[] data = reader.readLine().split(" ");
-//            int[] datos = new int[data.length];
-//
-//            for (int i = 0; i < datos.length; i++) {
-//                datos[i] = Integer.parseInt(data[i]);
-//            }
-//
-//            switch (type) {
-//                case "stack":
-//                    //llamar un metodo para graficar
-//                    break;
-//                case "queue":
-//                    //llamar un metodo para graficar
-//                    break;
-//                case "linkedlist":
-//                    //llamar un metodo para graficar
-//                    break;
-//                case "circularlinkedlist":
-//                    //llamar un metodo para graficar
-//                    break;
-//                case "doublelinkedlist":
-//                    //llamar un metodo para graficar
-//                    break;
-//                case "btree":
-//                    //llamar un metodo para graficar
-//                    break;
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(location));
+            type = reader.readLine();
+            while (type != null) {
+                String[] data = reader.readLine().split(" ");
+                int[] datos = new int[data.length];
+
+                for (int i = 0; i < datos.length; i++) {
+                    datos[i] = Integer.parseInt(data[i]);
+                }
+
+                switch (type) {
+                    case "stack":
+                        //llamar un metodo para graficar
+                        break;
+                    case "queue":
+                        //llamar un metodo para graficar
+                        break;
+                    case "linkedlist":
+                        //llamar un metodo para graficar
+                        break;
+                    case "circularlinkedlist":
+                        //llamar un metodo para graficar
+                        break;
+                    case "doublelinkedlist":
+                        DoubleLinkedList dl = new DoubleLinkedList();
+                        for (int i = 0; i < datos.length; i++) {
+                            dl.addLast(datos[i]);
+                        }
+                       
+                        break;
+                    case "btree":
+                        //llamar un metodo para graficar
+                        break;
+                }
+                type = reader.readLine();
+                
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_GeneratGraph_ButtomActionPerformed
 
     /**
