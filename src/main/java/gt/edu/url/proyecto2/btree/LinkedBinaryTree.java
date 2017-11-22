@@ -177,6 +177,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 		node.setParent(node);
 		return temp;
 	}
+        
 
 	@Override
 	public Iterator<E> iterator() {
@@ -194,5 +195,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+        
+        
 
 }

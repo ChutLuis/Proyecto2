@@ -48,6 +48,7 @@ public class Principal extends javax.swing.JFrame {
         GeneratGraph_Buttom = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ImportDoc_buttom.setText("Import txt doc");
         ImportDoc_buttom.setName("ImportTxtDoc"); // NOI18N
@@ -56,10 +57,13 @@ public class Principal extends javax.swing.JFrame {
                 ImportDoc_buttomActionPerformed(evt);
             }
         });
+        getContentPane().add(ImportDoc_buttom, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 42, 109, 31));
 
         ShowDoc_AreaText.setColumns(20);
         ShowDoc_AreaText.setRows(5);
         jScrollPane1.setViewportView(ShowDoc_AreaText);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 23, 245, 288));
 
         GeneratGraph_Buttom.setText("Generate Graph");
         GeneratGraph_Buttom.addActionListener(new java.awt.event.ActionListener() {
@@ -67,33 +71,7 @@ public class Principal extends javax.swing.JFrame {
                 GeneratGraph_ButtomActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ImportDoc_buttom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GeneratGraph_Buttom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(ImportDoc_buttom, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(GeneratGraph_Buttom, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(GeneratGraph_Buttom, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 84, -1, 32));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -114,10 +92,9 @@ public class Principal extends javax.swing.JFrame {
 //
 //            if (filechoose.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
 //                storage = filechoose.getSelectedFile().getAbsolutePath();
-//            }
-//            
+//            }            
 //            dg.createDemoFromDot(location, storage, "stack");
-//        } catch (IOException e) {
+//        }catch (IOException e) {
 //            e.printStackTrace();
 //        }
 

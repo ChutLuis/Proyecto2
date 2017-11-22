@@ -21,7 +21,7 @@ public class Graphviz {
         guru.nidi.graphviz.engine.Graphviz.fromGraph(g).width(200).render(Format.PNG).toFile(new File("example/ex1.png"));
     }
 
-    public void createDemoFromDot(String Location, String Storage, String Type) throws IOException {
+public void createDemoFromDot(String Location, String Storage, String Type) throws IOException {
         File file = new File(Location);
         FileInputStream fis = null;
         fis = new FileInputStream(file);
@@ -30,5 +30,5 @@ public class Graphviz {
         guru.nidi.graphviz.engine.Graphviz.fromGraph(g).width(700).render(Format.PNG).toFile(new File
         (Storage + "\\example #" + cont + ' ' + Type +".png"));
         cont++;
-    }
+}
 }
