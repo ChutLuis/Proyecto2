@@ -6,6 +6,7 @@
 package gt.edu.url.proyecto2.btree;
 
 import gt.edu.url.proyecto2.dataStructures.DoubleLinkedList;
+import gt.edu.url.proyecto2.design.CreateDot;
 
 /**
  *
@@ -38,6 +39,9 @@ public class Main {
         System.out.println(p2.getElement());
         System.out.println(p3.getElement());        
         System.out.println(n3.left(p3).getElement());
+        
+        CreateDot<Integer> mo = new CreateDot<>();
+        mo.createBtree(n3);
         
         
        
