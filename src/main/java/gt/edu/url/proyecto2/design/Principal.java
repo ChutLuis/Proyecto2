@@ -88,7 +88,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_ImportDoc_buttomActionPerformed
 
     private void GeneratGraph_ButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneratGraph_ButtomActionPerformed
-        
+
         filechoose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         if (filechoose.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             storage = filechoose.getSelectedFile().getAbsolutePath();
@@ -102,36 +102,67 @@ public class Principal extends javax.swing.JFrame {
                 String[] data = reader.readLine().split(" ");
                 int[] datos = new int[data.length];
 
-                for (int i = 0; i < datos.length; i++) {
-                    datos[i] = Integer.parseInt(data[i]);
+                if (!"".equals(data[0])) {
+                    for (int i = 0; i < datos.length; i++) {
+                        datos[i] = Integer.parseInt(data[i]);
+                    }
+                } else {
+                    datos[0] = -35154639;
                 }
 
                 switch (type) {
                     case "stack":
-                        //llamar un metodo para graficar
+                        DynamicStack S = new DynamicStack();
+                        if (!"".equals(data[0])) {
+                            for (int i = 0; i < datos.length; i++) {
+                                S.push(datos[i]);
+                            }
+                        }
+                        dg.createDemoFromDot(newdot.createStack(S, storage), storage, type);
                         break;
                     case "queue":
-                        //llamar un metodo para graficar
+                        DynamicQueue Q = new DynamicQueue();
+                        if (!"".equals(data[0])) {
+                            for (int i = 0; i < datos.length; i++) {
+                                Q.enqueue(datos[i]);
+                            }
+                        }
+                        dg.createDemoFromDot(newdot.createQueue(Q, storage), storage, type);
                         break;
                     case "linkedlist":
-                        //llamar un metodo para graficar
+                        LinkedList ll = new LinkedList();
+                        if (!"".equals(data[0])) {
+                            for (int i = 0; i < datos.length; i++) {
+                                ll.addLast(datos[i]);
+                            }
+                        }
+                        dg.createDemoFromDot(newdot.createDotLinkedList(ll, storage), storage, type);
                         break;
                     case "circularlinkedlist":
-                        //llamar un metodo para graficar
+                        CircularLinkedList Cl = new CircularLinkedList();
+                        if (!"".equals(data[0])) {
+                            for (int i = 0; i < datos.length; i++) {
+                                Cl.addLast(datos[i]);
+                            }
+                        }
+                        dg.createDemoFromDot(newdot.createDotCircularLinkedList(Cl, storage), storage, type);
                         break;
                     case "doublelinkedlist":
                         DoubleLinkedList dl = new DoubleLinkedList();
-                        for (int i = 0; i < datos.length; i++) {
-                            dl.addLast(datos[i]);
+                        if (!"".equals(data[0])) {
+                            for (int i = 0; i < datos.length; i++) {
+                                dl.addLast(datos[i]);
+                            }
                         }
                         dg.createDemoFromDot(newdot.createDotDoubleLinkedList(dl, storage), storage, type);
                         break;
                     case "btree":
+                        LinkedBinaryTree bt = new LinkedBinaryTree();
                         //llamar un metodo para graficar
                         break;
                 }
                 type = reader.readLine();
-                
+
             }
         } catch (IOException e) {
             e.printStackTrace();

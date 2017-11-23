@@ -34,7 +34,7 @@ public class DynamicQueue<E> implements Queue<E> {
 	Node<E> first;
 	
 	public DynamicQueue() {
-        first = new Node(null, null);
+        first = null;
     }
 	
 	
@@ -58,7 +58,7 @@ public class DynamicQueue<E> implements Queue<E> {
         } else {
         	nn.setNext(first);
         	while (nn.getNext().getNext() != null){
-        		nn.setNext(nn.getNext());
+        		nn.setNext(nn.getNext().getNext());
         	}
         	nn.getNext().setNext(nn);
         	nn.setNext(null);
@@ -77,7 +77,7 @@ public class DynamicQueue<E> implements Queue<E> {
 		}
 		else {
 			E element = first.getElement();
-			first.setNext(first.getNext());
+                        first = first.getNext();
 			Sz--;
 			return element;
 		}

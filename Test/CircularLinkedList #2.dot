@@ -1,4 +1,4 @@
 digraph foo {
-rankdir=LR;
+layout=circo
 1;
 }
