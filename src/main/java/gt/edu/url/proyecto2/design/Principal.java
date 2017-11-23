@@ -154,7 +154,7 @@ public class Principal extends javax.swing.JFrame {
                                 dl.addLast(datos[i]);
                             }
                         }
-                        dg.createDemoFromDot(newdot.createDotDoubleLinkedList(dl, storage), storage, type);
+                       dg.createDemoFromDot(newdot.createDotDoubleLinkedList(dl, storage), storage, type);
                         break;
                     case "btree":
                         LinkedBinaryTree bt = new LinkedBinaryTree();

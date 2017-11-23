@@ -5,7 +5,7 @@
  */
 package gt.edu.url.proyecto2.design;
 
-import gt.edu.url.proyecto2.btree.LinkedBinaryTree;
+import gt.edu.url.proyecto2.btree.*;
 import gt.edu.url.proyecto2.dataStructures.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -17,13 +17,13 @@ import java.util.logging.Logger;
  * @author Luis
  */
 public class CreateDot<E> {
-
     int contStack = 1;
     int contQueue = 1;
     int contLinkedList = 1;
     int contCircularLinkedList = 1;
     int contDoubleLinkedList = 1;
     int contBtree = 1;
+    
 
     public String createStack(DynamicStack<E> S, String storage) {
         String fileName = storage + "\\Stack #" + contStack + ".dot";
@@ -175,13 +175,22 @@ public class CreateDot<E> {
         }
 
     }
-
-    public void createBtree(LinkedBinaryTree<E> n1) {
-        String fileName = "N1.dot";
+    
+    
+    public void createBtree(DoubleLinkedList<E> n1){
+        String fileName= "N1.dot";
         try {
-            PrintWriter outputStream = new PrintWriter(fileName);
-            outputStream.println("graph {");
-            outputStream.println(n1.root().getElement().toString() + "--" + n1.left(n1.root()).getElement().toString() + ";");
+            PrintWriter outputStream = new PrintWriter(fileName);           
+            E data= n1.first();
+            E aux2;
+            outputStream.println("graph {");    
+            while(n1.isEmpty()!=true){
+                outputStream.println(n1.removeFirst()+"--"+n1.removeFirst());
+                aux2=n1.first();
+                outputStream.println(data+"--"+aux2);
+                aux2=n1.removeFirst();
+            }      
+            
             outputStream.println("}");
             outputStream.close();
 
@@ -189,6 +198,5 @@ public class CreateDot<E> {
             Logger.getLogger(CreateDot.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }

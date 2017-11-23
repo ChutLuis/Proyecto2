@@ -41,7 +41,12 @@ public class Main {
         System.out.println(n3.left(p3).getElement());
         
         CreateDot<Integer> mo = new CreateDot<>();
-        mo.createBtree(n3);  
+        mo.createBtree(n2);
+        
+        
+       
+              
+        
         
     }
     
