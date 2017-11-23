@@ -167,8 +167,16 @@ public class Principal extends javax.swing.JFrame {
                        dg.createDemoFromDot(newdot.createDotDoubleLinkedList(dl, storage), storage, type);
                         break;
                     case "btree":
+                        DoubleLinkedList d1 = new DoubleLinkedList();
+                        if (!"".equals(data[0])) {
+                            for (int i = 0; i < datos.length; i++) {
+                                d1.addFirst(datos[i]);
+                            }
+                        }
+                        Iterationsbtree n1= new Iterationsbtree();
                         LinkedBinaryTree bt = new LinkedBinaryTree();
-                        //llamar un metodo para graficar
+                        bt= n1.fillToTheRight(d1);
+                        dg.createDemoFromDot(newdot.createBtree(bt, storage), storage, type);
                         break;
                 }
                 type = reader.readLine();

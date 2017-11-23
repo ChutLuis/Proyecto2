@@ -208,26 +208,35 @@ public class CreateDot<E> {
  * this method creates a new doc.dot
  * @param nl, is our new data structure
  */
-    public void createBtree(DoubleLinkedList<E> n1){
-        String fileName= "N1.dot";
+    public String createBtree(LinkedBinaryTree<E> n1, String storage){               
+        String fileName = storage + "\\DoubleLinkedList #" + contBtree + ".dot";
+        contBtree++;      
+        Position<E> p1,p2,p3;
+        p1=n1.root();
+        p2=n1.left(p1);
+        p3=n1.right(p1);
+        do{           
+             p2=n1.left(p1);
+             p3=n1.right(p1);
+             p1=p3;
+            }while(n1.numChildren(p1)!=0);
+        if(n1.isExternal(p1))System.out.println("Succes");
         try {
-            PrintWriter outputStream = new PrintWriter(fileName);           
-            E data= n1.first();
-            E aux2;
+            PrintWriter outputStream = new PrintWriter(fileName);               
             outputStream.println("graph {");    
-            while(n1.isEmpty()!=true){
-                outputStream.println(n1.removeFirst()+"--"+n1.removeFirst());
-                aux2=n1.first();
-                outputStream.println(data+"--"+aux2);
-                aux2=n1.removeFirst();
-            }      
-            
+            do{                
+                if(n1.numChildren(p1)==2){outputStream.println(n1.parent(p1).getElement().toString()+"--"+"{"+p1.getElement().toString()+" "+n1.sibling(p1).getElement().toString()+"}"+";");}
+                else if(n1.numChildren(n1.parent(p1))!=0){outputStream.println(n1.parent(p1).getElement().toString()+"--"+n1.left(n1.parent(p1)).getElement().toString()+";");}
+                else if(n1.numChildren(n1.parent(p1))==0){outputStream.println(n1.parent(p1).getElement().toString()+"--"+"null"+";");}
+                p1=n1.parent(p1);
+                   
+            }while( p1 != n1.root());
             outputStream.println("}");
             outputStream.close();
-
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CreateDot.class
-                    .getName()).log(Level.SEVERE, null, ex);
+        
+} catch (FileNotFoundException ex) {
+            Logger.getLogger(CreateDot.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return fileName;
     }
 }

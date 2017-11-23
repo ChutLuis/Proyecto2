@@ -1,0 +1,3 @@
+digraph foo {
+layout=circo
+}

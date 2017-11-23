@@ -21,7 +21,7 @@ public class Main {
         // TODO code application logic here
         Iterationsbtree<Integer> n1= new Iterationsbtree<>();
         DoubleLinkedList<Integer> n2= new DoubleLinkedList<>();
-        LinkedBinaryTree<Integer> n3 = new LinkedBinaryTree<>(); 
+        LinkedBinaryTree n3 = new LinkedBinaryTree(); 
                 
         n2.addFirst(1);
         n2.addFirst(2);
@@ -29,7 +29,7 @@ public class Main {
         n2.addFirst(4);
         n2.addFirst(5);
         n2.addFirst(6);        
-        
+//        n2.addFirst(7);       
         n3=n1.fillToTheRight(n2);
         Position<Integer> p1,p2,p3;
         p1= n3.root();
@@ -38,10 +38,10 @@ public class Main {
         System.out.println("===============");
         System.out.println(p2.getElement());
         System.out.println(p3.getElement());        
-        System.out.println(n3.left(p3).getElement());
         
-        CreateDot<Integer> mo = new CreateDot<>();
-        mo.createBtree(n2);
+        
+        CreateDot mo = new CreateDot();
+        mo.createBtree(n3, "bree");
         
         
        
