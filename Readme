@@ -1,0 +1,12 @@
+##Segundo Proyecto De Programacion Avanzada
+En este proyecto se investigo graphviz el cual es una herramienta que nos permite crear graficos que nos sirven en todo tipo de ocasiones
+el cual fue implementado en Java utilizando NetBeans 8.2 Como IDE principal para la creacion del proyecto.
+Las Structuras de datos implementadas Fueron 
+-stack
+-queue
+-linkedlist
+-circularlinkedlist
+-doublelinkedlist
+-btree
+Las cuales se implementaron manualmente en el ide segun las estructuras provenientes del github del catedratico de Programacion Avanzada 
+en el segundo ciclo de 2017.
