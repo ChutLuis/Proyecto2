@@ -206,10 +206,11 @@ public class CreateDot<E> {
     
     /**
  * this method creates a new doc.dot
- * @param nl, is our new data structure
+ * @param n1, is our new data structure
+ * @param storage, is where we will save de doc
  */
     public String createBtree(LinkedBinaryTree<E> n1, String storage){               
-        String fileName = storage + "\\DoubleLinkedList #" + contBtree + ".dot";
+        String fileName = storage + "\\BeeTree #" + contBtree + ".dot";
         contBtree++;      
         Position<E> p1,p2,p3;
         p1=n1.root();

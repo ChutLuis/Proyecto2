@@ -180,7 +180,6 @@ public class Principal extends javax.swing.JFrame {
                         break;
                 }
                 type = reader.readLine();
-
             }
         } catch (IOException e) {
             e.printStackTrace();

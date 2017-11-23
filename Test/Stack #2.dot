@@ -1,4 +1,0 @@
-digraph G {
-node [shape= record]
-struct1 [label="{1}"];
-}
