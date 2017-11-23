@@ -27,6 +27,10 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
     }
+    
+    /**
+     * these are the objects that we used
+     */
     Graphviz dg = new Graphviz();
     FileLoader Fl = new FileLoader();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos permitidos", "txt", "dot");
@@ -77,7 +81,10 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+/**
+ * buttom used to import a new doc and show it in our text area
+ * @param evt 
+ */
     private void ImportDoc_buttomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportDoc_buttomActionPerformed
         filechoose.setFileFilter(filter);
         int opcion = filechoose.showOpenDialog(this);
@@ -86,7 +93,10 @@ public class Principal extends javax.swing.JFrame {
             ShowDoc_AreaText.setText(Fl.writetext(location));
         }
     }//GEN-LAST:event_ImportDoc_buttomActionPerformed
-
+/**
+ * buttom used to created all the new graphs
+ * @param evt 
+ */
     private void GeneratGraph_ButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneratGraph_ButtomActionPerformed
 
         filechoose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);

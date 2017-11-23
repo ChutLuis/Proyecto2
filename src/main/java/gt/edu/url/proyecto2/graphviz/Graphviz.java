@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import guru.nidi.graphviz.engine.*;
-import guru.nidi.graphviz.model.Graph;
+//import guru.nidi.graphviz.model.Graph;
 import guru.nidi.graphviz.model.MutableGraph;
 import guru.nidi.graphviz.parse.Parser;
 
@@ -16,11 +16,13 @@ public class Graphviz {
 
     int cont = 1;
 
-    public void createDemoGraph() throws IOException {
-        Graph g = graph("example1").directed().with(node("a").link(node("b")));
-        guru.nidi.graphviz.engine.Graphviz.fromGraph(g).width(200).render(Format.PNG).toFile(new File("example/ex1.png"));
-    }
-
+    /**
+     * this method creates a new grahp from a .dot doc
+     * @param Location, the location of the doc.dot
+     * @param Storage, where we are going to save de graph
+     * @param Type, the type of the data stricture
+     * @throws IOException 
+     */
 public void createDemoFromDot(String Location, String Storage, String Type) throws IOException {
         File file = new File(Location);
         FileInputStream fis = null;

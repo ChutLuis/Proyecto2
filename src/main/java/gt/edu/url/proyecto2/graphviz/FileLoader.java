@@ -14,8 +14,13 @@ import java.util.stream.Stream;
 
 public class FileLoader {
 
+    /**
+     * load a file using java 7 method.
+     *
+     * @return, returns a string with all the readed doc
+     */
     public String writetext(String id) {
-        
+
         String Rstring = "";
         File file = new File(id);
         try (FileInputStream fis = new FileInputStream(file)) {
@@ -30,36 +35,49 @@ public class FileLoader {
             return null;
         }
     }
-public void loadFileWithJava7() {
-		File file = new File("/Users/tuxtor/Downloads/linked_list.dot");
 
-		try (FileInputStream fis = new FileInputStream(file)) {
+    /**
+     * load a file using java 7 method and prints it in the console
+     */
+    public void loadFileWithJava7() {
+        File file = new File("/Users/tuxtor/Downloads/linked_list.dot");
 
-			System.out.println("Total file size to read (in bytes) : " + fis.available());
+        try (FileInputStream fis = new FileInputStream(file)) {
 
-			int content;
-			while ((content = fis.read()) != -1) {
-				// convert to char and display it
-				System.out.print((char) content);
-			}
+            System.out.println("Total file size to read (in bytes) : " + fis.available());
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+            int content;
+            while ((content = fis.read()) != -1) {
+                // convert to char and display it
+                System.out.print((char) content);
+            }
 
-	public void loadFileWithJava8() {
-		String fileName = "C:/Users/Luis/Desktop/try.txt";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-		// read file into stream, try-with-resources
-		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+    /**
+     * Loads a file using java 8 and prints it in the consolo
+     */
+    public void loadFileWithJava8() {
+        String fileName = "C:/Users/Luis/Desktop/try.txt";
 
-			stream.forEach(System.out::println);
+        // read file into stream, try-with-resources
+        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-}
+            stream.forEach(System.out::println);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * creates a new file .txt
+     *
+     * @param data data is the text that we want to add to the new doc
+     */
     public void writeUsingFileWriter(String data) {
         File file = new File("C:/Users/Luis/Desktop/try.txt");
 

@@ -17,6 +17,9 @@ import java.util.logging.Logger;
  * @author Luis
  */
 public class CreateDot<E> {
+    /**
+     * these are the conters of the diferent types of data structures
+     */
     int contStack = 1;
     int contQueue = 1;
     int contLinkedList = 1;
@@ -24,7 +27,12 @@ public class CreateDot<E> {
     int contDoubleLinkedList = 1;
     int contBtree = 1;
     
-
+/**
+ * this method creates a new doc.dot
+ * @param S, is our new data structure
+ * @param storage, where we are going to save the new doc .dot
+ * @return string with the location of the new doc .dot
+ */
     public String createStack(DynamicStack<E> S, String storage) {
         String fileName = storage + "\\Stack #" + contStack + ".dot";
         contStack++;
@@ -48,7 +56,12 @@ public class CreateDot<E> {
             return null;
         }
     }
-    //rankdir=LR;
+    /**
+ * this method creates a new doc.dot
+ * @param Q, is our new data structure
+ * @param storage, where we are going to save the new doc .dot
+ * @return string with the location of the new doc .dot
+ */
 
     public String createQueue(DynamicQueue<E> Q, String storage) {
         String fileName = storage + "\\Queue #" + contQueue + ".dot";
@@ -74,7 +87,12 @@ public class CreateDot<E> {
             return null;
         }
     }
-
+/**
+ * this method creates a new doc.dot
+ * @param Ll, is our new data structure
+ * @param storage, where we are going to save the new doc .dot
+ * @return string with the location of the new doc .dot
+ */
     public String createDotLinkedList(LinkedList<E> Ll, String storage) {
         String fileName = storage + "\\LinkedList #" + contLinkedList + ".dot";
         contLinkedList++;
@@ -104,7 +122,12 @@ public class CreateDot<E> {
             return null;
         }
     }
-
+/**
+ * this method creates a new doc.dot
+ * @param cl, is our new data structure
+ * @param storage, where we are going to save the new doc .dot
+ * @return string with the location of the new doc .dot
+ */
     public String createDotCircularLinkedList(CircularLinkedList<E> cl, String storage) {
         String fileName = storage + "\\CircularLinkedList #" + contCircularLinkedList + ".dot";
         contCircularLinkedList++;
@@ -141,7 +164,12 @@ public class CreateDot<E> {
         }
 
     }
-
+/**
+ * this method creates a new doc.dot
+ * @param dl, is our new data structure
+ * @param storage, where we are going to save the new doc .dot
+ * @return string with the location of the new doc .dot
+ */
     public String createDotDoubleLinkedList(DoubleLinkedList<E> dl, String storage) {
         String fileName = storage + "\\DoubleLinkedList #" + contDoubleLinkedList + ".dot";
         contDoubleLinkedList++;
@@ -176,7 +204,10 @@ public class CreateDot<E> {
 
     }
     
-    
+    /**
+ * this method creates a new doc.dot
+ * @param nl, is our new data structure
+ */
     public void createBtree(DoubleLinkedList<E> n1){
         String fileName= "N1.dot";
         try {
